@@ -7,6 +7,7 @@ RUN apt-get -yy update \
 
 RUN addgroup nicotine
 RUN useradd -m -g nicotine nicotine
+USER nicotine
 EXPOSE 5900
 ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
